@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
-    private static final String[] operations = {"Выход", "Добавить", "Показать", "Удалить"};
+    private static final String[] operations = {"Выход", "Добавить", "Показать", "Удалить", "Найти"};
 
     private static ArrayList<String> products = new ArrayList<>();
 
@@ -57,6 +57,10 @@ public class Main {
                 removeOperation();
                 break;
             }
+            case 4: {
+                findOperation();
+                break;
+            }
             default: System.out.println("Операция " + op + " не найдена.");
         }
     }
@@ -105,6 +109,16 @@ public class Main {
         }
         else {
             System.out.println("Покупка с таким названием не найден.");
+        }
+    }
+
+    private static void findOperation() {
+        System.out.println("Введите текст для поиска:");
+        String s = scanner.nextLine().toLowerCase();
+        for (int i = 0; i < products.size(); i++) {
+            if(products.get(i).toLowerCase().contains(s)) {
+                System.out.println((i + 1) + ". " + products.get(i));
+            }
         }
     }
 }
