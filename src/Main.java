@@ -91,8 +91,12 @@ public class Main {
             showOperation();
             return;
         }
-        catch (NumberFormatException | IndexOutOfBoundsException e) {
-            System.out.println(e.toString());
+        catch (NumberFormatException e) {
+            //System.out.println(e.toString());
+        }
+        catch (IndexOutOfBoundsException e) {
+            System.out.println("Введенный индекс вне диапазона.");
+            return;
         }
         // Удалить по имени продукта
         if(products.remove(s)) {
